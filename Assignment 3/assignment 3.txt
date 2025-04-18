@@ -1,0 +1,7 @@
+1. ! or html5
+2. describes the version of the html page.
+3. html tag that does not have a closing tag (eg:<img>, <br>, <link>)
+4. tags are elements and attribute gives the properties of tags.
+5. html entities are the special codes used in html.
+6. provides the metadata to the web page and helps the browsers to understand the web page.
+7. using local storage or cdn.
