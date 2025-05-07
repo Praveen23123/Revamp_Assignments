@@ -56,7 +56,12 @@ body {
   font-size: 16px;
   text-align: center;
 }
+<<<<<<< HEAD
 
 .btn:hover {
   cursor: pointer;
+=======
+.btn:hover{
+  cursor:pointer;
+>>>>>>> d5cd4f1e66e334f2dfcfdba8538453680f717971
 }
