@@ -10,8 +10,8 @@
     let userAge = 25; // Declare a variable named userAge and assign a numerical value
     let userName = "John Doe"; // Declare another variable named userName and assign a string value
 
-    console.log(userAge); // Output the userAge variable
-    console.log(userName); // Output the userName variable
+    console.log(userAge); // Output of userAge variable
+    console.log(userName); // Output of userName variable
 
  3. Comments in JavaScript:
  
