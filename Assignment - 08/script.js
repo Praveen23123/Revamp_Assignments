@@ -5,8 +5,8 @@ var off_btn = document.getElementById("off-btn");
 var on_btn = document.getElementById("on-btn");
 
 off_btn.addEventListener("click" , ()=>{
-    bulb.src = "../Assignment 8/assets/bulb-go-off-img.png";
-    cat.src = "../Assignment 8/assets/cat-eyes-img.png";
+    bulb.src = "../Assignment - 08/assets/bulb-go-off-img.png";
+    cat.src = "../Assignment - 08/assets/cat-eyes-img.png";
     off_btn.style.backgroundColor = "#CBD2D9";
     on_btn.style.backgroundColor = "#22C55E";
     switch_status.textContent = "Switched OFF";
@@ -14,8 +14,8 @@ off_btn.addEventListener("click" , ()=>{
 })
 
 on_btn.addEventListener("click" , ()=>{
-    bulb.src = "../Assignment 8/assets/bulb-go-on-img.png";
-    cat.src = "../Assignment 8/assets/cat-img.png";
+    bulb.src = "../Assignment - 08/assets/bulb-go-on-img.png";
+    cat.src = "../Assignment - 08/assets/cat-img.png";
     off_btn.style.backgroundColor = "#EF4444";
     on_btn.style.backgroundColor = "#CBD2D9";
     switch_status.textContent = "Switched ON";
