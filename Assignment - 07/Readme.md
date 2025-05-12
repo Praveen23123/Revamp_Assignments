@@ -30,7 +30,7 @@ HTML Questions
 
 8. IMPORTANT 3 ELEMENTS OR TAGS
 
-// <h1> for headings, <p> for paragraphs, and <button> for clickable buttons.
+// <h1></h1> for headings, <p></p> for paragraphs, and <button></button> for clickable buttons.
 
 9. WHAT IS DIFFERENT B/W ELEMENTS & TAGS IN HTML
 
