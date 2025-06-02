@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+
+    <!-- Tailwind css link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="w-[100%] mx-auto bg-slate-600">
+        <div class="w-[90%] mx-auto flex justify-center items-center h-screen ">
+            <form class="bg-slate-400 p-8 rounded-xl flex flex-col justify-center" id="form">
+                <div class="mb-5">
+                    <h1 class="text-center text-white mb-3 text-[28px]">Login </h1>
+                    <hr>
+                </div>
+                <div class="mb-5">
+                    <label class="text-white text-[18px]" for="email">Email :</label>
+                    <br>
+                    <input class="rounded-lg py-2 px-5" type="text" name="email" id="email" required>
+                    <p class="text-[12px]" id="emailError"></p>
+                </div>
+                <div class="mb-5">
+                    <label class="text-white text-[18px]" for="password">Password :</label>
+                    <br>
+                    <input class="rounded-lg py-2 px-5" type="password" name="password" id="password" required>
+                    <p class="text-[12px]" id="passError"></p>
+                </div>
+                <button class="text-white bg-green-600 rounded-lg p-2">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var form = document.getElementById("form");
+        var email = document.getElementById("email");
+        var pass = document.getElementById("password");
+        var emailError = document.getElementById("emailError");
+        var passError = document.getElementById("passError");
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            console.log(email.value);
+            console.log(pass.value);
+        })
+
+        email.addEventListener("input", (e) => {
+            const emailRegex = /^\S+@\S+\.\S+$/;
+            if (e.target.value == "") {
+                emailError.textContent = "required field";
+            }
+            else if (!e.target.value.match(emailRegex)) {
+                emailError.textContent = "Invalid email";
+            }
+            else {
+                emailError.textContent = "";
+            }
+        })
+
+        pass.addEventListener("input", (e) => {
+            const passRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+            if (e.target.value == "") {
+                passError.textContent = "required field";
+            }
+            else if (!e.target.value.match(passRegex)) {
+                passError.textContent = "Invalid password";
+            }
+            else {
+                passError.textContent = "";
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
