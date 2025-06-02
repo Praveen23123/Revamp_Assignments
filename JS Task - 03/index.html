@@ -8,6 +8,11 @@
 
     <!-- Tailwind css link -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!--FireBase SDK-->
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 </head>
 
 <body>
@@ -46,12 +51,38 @@
         var email_value = document.getElementById("email_value");
         var pass_value = document.getElementById("pass_value");
 
+        function saveData(email, pass) {
+            // Your web app's Firebase configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyBdfURAIuIwwczHzS9ayfSpQ4sGgkN_QXs",
+                authDomain: "login-form-revamp.firebaseapp.com",
+                databaseURL: "https://login-form-revamp-default-rtdb.asia-southeast1.firebasedatabase.app",
+                projectId: "login-form-revamp",
+                storageBucket: "login-form-revamp.firebasestorage.app",
+                messagingSenderId: "95589967455",
+                appId: "1:95589967455:web:2e19fdc8ca4c1da8ac5dea"
+            };
+
+            firebase.initializeApp(firebaseConfig);
+
+            const db = firebase.database().ref("LoginForm");
+
+            db.push({
+                email: email,
+                password: pass,
+            });
+        }
+
+
         form.addEventListener("submit", (e) => {
             e.preventDefault();
-            console.log(email.value);
-            console.log(pass.value);
-            email.value = "";
-            pass.value = "";
+            let isValid = advanceValidation(email.value, pass.value);
+
+            if (isValid) {
+                console.log("Data send to the DB")
+                saveData(email.value, pass.value);
+            }
+
         })
 
         email.addEventListener("input", (e) => {
@@ -80,6 +111,51 @@
             }
         })
 
+        function advanceValidation(email, pass) {
+            const emailRegex = /^\S+@\S+\.\S+$/;
+            const passRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+
+            let isValid = true;
+            // email validation
+            if (email.match(emailRegex)) {
+                console.log("valid Email");
+            }
+            else {
+                isValid = false;
+                console.log("Invalid Email");
+            }
+
+            // password validation
+            if (pass.match(passRegex)) {
+                console.log("Valid Password");
+            }
+            else {
+                isValid = false;
+                console.log("Invalid Password");
+            }
+            if (isValid == true) {
+                setTimeout(() => {
+                    form.reset();
+                }, 1000);
+            }
+
+            return isValid;
+        }
+        // else if (isValid == false) {
+        //     if (email.match(emailRegex)) {
+        //         emailError.textContent = "";
+        //     }
+        //     else {
+        //         emailError.textContent = "Enter a valid email";
+        //     }
+        //     if (pass.match(passRegex)) {
+        //         passError.textContent = "";
+        //     }
+        //     else {
+        //         passError.textContent = "Enter a valid Password";
+        //     }
+        // }
+        //  if email matched it should remain same pass should display invalid and alternate for others
 
 
 
