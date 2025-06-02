@@ -46,6 +46,8 @@
             e.preventDefault();
             console.log(email.value);
             console.log(pass.value);
+            email.value = "";
+            pass.value = "";
         })
 
         email.addEventListener("input", (e) => {
