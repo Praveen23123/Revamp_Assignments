@@ -33,6 +33,8 @@
                 <button class="text-white bg-green-600 rounded-lg p-2">Login</button>
             </form>
         </div>
+        <h1 id="emailvalue_">sfsaf</h1>
+        <h2 id="pass_value">sdfsdafd</h2>
     </div>
 
     <script>
@@ -41,11 +43,16 @@
         var pass = document.getElementById("password");
         var emailError = document.getElementById("emailError");
         var passError = document.getElementById("passError");
+        var email_value = document.getElementById("email_value");
+        var pass_value = document.getElementById("pass_value");
 
         form.addEventListener("submit", (e) => {
             e.preventDefault();
             console.log(email.value);
             console.log(pass.value);
+
+            email_value.textContent = "email.value";
+            pass_value.textContent = "pass.value";
             email.value = "";
             pass.value = "";
         })
@@ -75,6 +82,8 @@
                 passError.textContent = "";
             }
         })
+
+
 
 
     </script>
